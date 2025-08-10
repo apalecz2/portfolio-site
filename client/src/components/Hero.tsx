@@ -2,7 +2,7 @@ import React from "react"
 
 const Hero: React.FC = () => {
   return (
-    <section className="px-40 flex flex-1 justify-center py-5">
+    <section className="px-4 sm:px-6 md:px-8 lg:px-10 xl:px-16 flex flex-1 justify-center py-5">
       <div className="layout-content-container flex flex-col max-w-[960px] flex-1">
         <div className="@container">
           <div className="flex flex-col gap-6 px-4 py-10 @[480px]:gap-8 @[864px]:flex-row">
@@ -16,7 +16,7 @@ const Hero: React.FC = () => {
             <div className="flex flex-col gap-6 @[480px]:min-w-[400px] @[480px]:gap-8 @[864px]:justify-center">
               <div className="flex flex-col gap-2 text-left">
                 <h1 className="text-[var(--color-text)] text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
-                  Alex Chen
+                  Aiden Paleczny
                 </h1>
                 <h2 className="text-[var(--color-text)] text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
                   Software Engineer

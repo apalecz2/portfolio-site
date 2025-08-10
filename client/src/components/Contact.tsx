@@ -2,7 +2,7 @@ import React from "react"
 import SectionHeading from "./SectionHeading"
 
 const Contact: React.FC = () => (
-  <section id="contact" className="px-40 flex justify-center">
+  <section id="contact" className="px-4 sm:px-6 md:px-8 lg:px-10 xl:px-16 flex justify-center">
     <div className="layout-content-container flex flex-col max-w-[960px] flex-1">
       <SectionHeading>Contact</SectionHeading>
       <div className="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
@@ -15,7 +15,7 @@ const Contact: React.FC = () => (
         </label>
       </div>
       <div className="flex px-4 py-3 justify-start">
-        <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[var(--color-accent)] text-[var(--color-bg)] text-sm font-bold leading-normal tracking-[0.015em]">
+        <button className="w-full sm:w-auto flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[var(--color-accent)] text-[var(--color-bg)] text-sm font-bold leading-normal tracking-[0.015em]">
           <span className="truncate">Send</span>
         </button>
       </div>

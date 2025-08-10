@@ -21,7 +21,7 @@ const Projects: React.FC = () => {
   ]
 
   return (
-    <section id="projects" className="px-40 flex justify-center">
+    <section id="projects" className="px-4 sm:px-6 md:px-8 lg:px-10 xl:px-16 flex justify-center">
       <div className="layout-content-container flex flex-col max-w-[960px] flex-1">
         <SectionHeading>Projects</SectionHeading>
         {projects.map((p) => (

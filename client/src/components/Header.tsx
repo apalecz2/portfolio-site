@@ -17,21 +17,23 @@ const DarkIcon: React.FC = () => {
 }
 
 const Header: React.FC = () => {
-    
+
     const [isDark, setIsDark] = useState(
         document.documentElement.classList.contains("new-dark")
     );
-    
+    const [mobileOpen, setMobileOpen] = useState(false);
+
     const toggleDark = () => {
         const nowDark = !isDark;
         setIsDark(nowDark);
         document.documentElement.classList.toggle("new-dark", nowDark);
         localStorage.theme = nowDark ? "new-dark" : "light";
     };
-    
+
     return (
-        <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[var(--color-border)] px-10 py-3">
-            <div className="flex items-center gap-4 text-[var(--color-text)]">
+        <>
+        <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[var(--color-border)] px-4 sm:px-6 md:px-8 lg:px-10 py-3">
+            <div className="flex items-center gap-3 sm:gap-4 text-[var(--color-text)]">
                 <div className="size-4">
                     <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clipPath="url(#clip0_6_330)">
@@ -47,10 +49,21 @@ const Header: React.FC = () => {
                         </defs>
                     </svg>
                 </div>
-                <h2 className="text-[var(--color-text)] text-lg font-bold leading-tight tracking-[-0.015em]">Alex's Portfolio</h2>
+                <h2 className="text-[var(--color-text)] text-base sm:text-lg font-bold leading-tight tracking-[-0.015em]">Aiden's Portfolio</h2>
             </div>
-            <div className="flex flex-1 justify-end gap-8">
-                <nav className="flex items-center gap-9">
+            <div className="flex items-center gap-2 sm:gap-3 flex-1 justify-end">
+                <button
+                    onClick={() => setMobileOpen((v) => !v)}
+                    className="p-2 h-10 rounded-md hover:bg-[var(--color-bg-hover)] lg:hidden"
+                    aria-label="Toggle navigation menu"
+                    aria-controls="site-nav"
+                    aria-expanded={mobileOpen}
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-5">
+                        <path fillRule="evenodd" d="M3.75 5.25a.75.75 0 01.75-.75h15a.75.75 0 010 1.5h-15a.75.75 0 01-.75-.75zm0 6a.75.75 0 01.75-.75h15a.75.75 0 010 1.5h-15a.75.75 0 01-.75-.75zm.75 5.25a.75.75 0 000 1.5h15a.75.75 0 000-1.5h-15z" clipRule="evenodd" />
+                    </svg>
+                </button>
+                <nav id="site-nav" className="hidden lg:flex items-center gap-6 xl:gap-9">
                     <a className="text-[var(--color-text)] text-sm font-medium leading-normal" href="#about">About</a>
                     <a className="text-[var(--color-text)] text-sm font-medium leading-normal" href="#skills">Skills</a>
                     <a className="text-[var(--color-text)] text-sm font-medium leading-normal" href="#projects">Projects</a>
@@ -69,7 +82,7 @@ const Header: React.FC = () => {
                     )}
                 </button>
                 <div
-                    className="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+                    className="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-8 sm:size-10 hidden xs:block"
                     style={{
                         backgroundImage:
                             "url(https://lh3.googleusercontent.com/aida-public/AB6AXuB0OyrYMRPqFtcefHI1ukjPRRw06BVGiMGiwBQLqIxe7z4wLBy3dH4_it9Bh9gy5CESM3aevF6coFCtdJG2gXn05dn7a6WUbnzlMWM-Kg0yx8lqf0N6ORZHkg3pMKa57zbHdioK3uMO95Qv3buhjqA1DXpENn2_Vz_RDD4Zr0q9pemmyANjvM_kC2_N2SguTkFIVrgPJyLj69-xBvgq-GHaiEGf25bF13G5Qh6LezoRa9s8ahqSAfzug4yx3XWpw4gFUFQ4y_v69x1w)"
@@ -77,6 +90,17 @@ const Header: React.FC = () => {
                 />
             </div>
         </header>
+        {/* Mobile dropdown nav */}
+        <div className={`lg:hidden ${mobileOpen ? 'block' : 'hidden'} border-b border-[var(--color-border)]`}> 
+            <nav className="flex flex-col gap-1 px-4 sm:px-6 py-2" aria-label="Mobile">
+                <a className="text-[var(--color-text)] py-2 text-sm font-medium leading-normal" href="#about" onClick={() => setMobileOpen(false)}>About</a>
+                <a className="text-[var(--color-text)] py-2 text-sm font-medium leading-normal" href="#skills" onClick={() => setMobileOpen(false)}>Skills</a>
+                <a className="text-[var(--color-text)] py-2 text-sm font-medium leading-normal" href="#projects" onClick={() => setMobileOpen(false)}>Projects</a>
+                <a className="text-[var(--color-text)] py-2 text-sm font-medium leading-normal" href="#experience" onClick={() => setMobileOpen(false)}>Experience</a>
+                <a className="text-[var(--color-text)] py-2 text-sm font-medium leading-normal" href="#contact" onClick={() => setMobileOpen(false)}>Contact</a>
+            </nav>
+        </div>
+        </>
     )
 }
 
