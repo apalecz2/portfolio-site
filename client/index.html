@@ -4,7 +4,25 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&family=Manrope:wght@400;500;700;800&family=Noto+Sans:wght@400;500;700;900"
+    />
     <title>Portfolio - Aiden Paleczny</title>
+    <script>
+        (function () {
+            const storedTheme = localStorage.theme;
+            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            if (storedTheme === "new-dark" || (!storedTheme && prefersDark)) {
+                document.documentElement.classList.add("new-dark");
+            } else {
+                document.documentElement.classList.remove("new-dark");
+            }
+        })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

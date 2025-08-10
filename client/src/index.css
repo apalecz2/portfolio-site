@@ -1,1 +1,40 @@
 @import "tailwindcss";
+
+/* To use toggle instead of system*/
+@custom-variant dark (&:where(.new-dark, .new-dark *));
+
+/* Applied light and dark mode bg colours to entire page */
+html,
+body {
+  @apply bg-[var(--color-bg)] text-[var(--color-text)] min-h-screen;
+  font-family: var(--font-main);
+}
+
+@theme {
+  /* Light mode (default) */
+  --color-bg: #f9fbfb;
+  --color-bg-card: #eaf1f0;
+  --color-bg-hover: #d5e2e1;
+  --color-border: #eaf1f0;
+  --color-border-muted: #d5e2e1;
+  --color-text: #111818;
+  --color-text-muted: #5d8986;
+  --color-accent: #36938d;
+  --font-main: "Manrope", "Noto Sans", sans-serif;
+}
+
+@layer theme {
+  :root,
+  :host {
+    @variant dark {
+      --color-bg: #0f1313;
+      --color-bg-card: #1a2322;
+      --color-bg-hover: #22302f;
+      --color-border: #23302f;
+      --color-border-muted: #2a3a39;
+      --color-text: #f9fbfb;
+      --color-text-muted: #a6c5c3;
+      --color-accent: #46b2ab;
+    }
+  }
+}
