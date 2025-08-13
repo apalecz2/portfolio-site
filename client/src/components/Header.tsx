@@ -32,7 +32,7 @@ const Header: React.FC = () => {
 
     return (
         <>
-        <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[var(--color-border)] px-4 sm:px-6 md:px-8 lg:px-10 py-3">
+        <header className="fixed top-0 left-0 right-0 z-50 bg-[var(--color-bg)] flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[var(--color-border)] px-4 sm:px-6 md:px-8 lg:px-10 py-3">
             <div className="flex items-center gap-3 sm:gap-4 text-[var(--color-text)]">
                 <div className="size-4">
                     <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -51,7 +51,7 @@ const Header: React.FC = () => {
                 </div>
                 <h2 className="text-[var(--color-text)] text-base sm:text-lg font-bold leading-tight tracking-[-0.015em]">Aiden's Portfolio</h2>
             </div>
-            <div className="flex items-center gap-2 sm:gap-3 flex-1 justify-end">
+            <div className="flex items-center gap-4 sm:gap-3 flex-1 justify-end">
                 <button
                     onClick={() => setMobileOpen((v) => !v)}
                     className="p-2 h-10 rounded-md hover:bg-[var(--color-bg-hover)] lg:hidden"
@@ -63,12 +63,12 @@ const Header: React.FC = () => {
                         <path fillRule="evenodd" d="M3.75 5.25a.75.75 0 01.75-.75h15a.75.75 0 010 1.5h-15a.75.75 0 01-.75-.75zm0 6a.75.75 0 01.75-.75h15a.75.75 0 010 1.5h-15a.75.75 0 01-.75-.75zm.75 5.25a.75.75 0 000 1.5h15a.75.75 0 000-1.5h-15z" clipRule="evenodd" />
                     </svg>
                 </button>
-                <nav id="site-nav" className="hidden lg:flex items-center gap-6 xl:gap-9">
-                    <a className="text-[var(--color-text)] text-sm font-medium leading-normal" href="#about">About</a>
-                    <a className="text-[var(--color-text)] text-sm font-medium leading-normal" href="#skills">Skills</a>
-                    <a className="text-[var(--color-text)] text-sm font-medium leading-normal" href="#projects">Projects</a>
-                    <a className="text-[var(--color-text)] text-sm font-medium leading-normal" href="#experience">Experience</a>
-                    <a className="text-[var(--color-text)] text-sm font-medium leading-normal" href="#contact">Contact</a>
+                <nav id="site-nav" className="hidden lg:flex items-center gap-4 xl:gap-6">
+                    <a className="text-[var(--color-text)] text-sm font-medium leading-normal p-2 px-3 h-10 rounded-md hover:bg-[var(--color-bg-hover)]" href="#about">About</a>
+                    <a className="text-[var(--color-text)] text-sm font-medium leading-normal p-2 px-3 h-10 rounded-md hover:bg-[var(--color-bg-hover)]" href="#skills">Skills</a>
+                    <a className="text-[var(--color-text)] text-sm font-medium leading-normal p-2 px-3 h-10 rounded-md hover:bg-[var(--color-bg-hover)]" href="#projects">Projects</a>
+                    <a className="text-[var(--color-text)] text-sm font-medium leading-normal p-2 px-3 h-10 rounded-md hover:bg-[var(--color-bg-hover)]" href="#experience">Experience</a>
+                    <a className="text-[var(--color-text)] text-sm font-medium leading-normal p-2 px-3 h-10 rounded-md hover:bg-[var(--color-bg-hover)]" href="#contact">Contact</a>
                 </nav>
                 <button
                     onClick={toggleDark}
@@ -90,14 +90,16 @@ const Header: React.FC = () => {
                 />
             </div>
         </header>
+        {/* Spacer to account for fixed header height (h-16 => 64px matching py-3 + inner heights) */}
+        <div className="h-16" />
         {/* Mobile dropdown nav */}
         <div className={`lg:hidden ${mobileOpen ? 'block' : 'hidden'} border-b border-[var(--color-border)]`}> 
             <nav className="flex flex-col gap-1 px-4 sm:px-6 py-2" aria-label="Mobile">
-                <a className="text-[var(--color-text)] py-2 text-sm font-medium leading-normal" href="#about" onClick={() => setMobileOpen(false)}>About</a>
-                <a className="text-[var(--color-text)] py-2 text-sm font-medium leading-normal" href="#skills" onClick={() => setMobileOpen(false)}>Skills</a>
-                <a className="text-[var(--color-text)] py-2 text-sm font-medium leading-normal" href="#projects" onClick={() => setMobileOpen(false)}>Projects</a>
-                <a className="text-[var(--color-text)] py-2 text-sm font-medium leading-normal" href="#experience" onClick={() => setMobileOpen(false)}>Experience</a>
-                <a className="text-[var(--color-text)] py-2 text-sm font-medium leading-normal" href="#contact" onClick={() => setMobileOpen(false)}>Contact</a>
+                <a className="text-[var(--color-text)] py-2 px-3 text-sm font-medium leading-normal rounded-md hover:bg-[var(--color-bg-hover)]" href="#about" onClick={() => setMobileOpen(false)}>About</a>
+                <a className="text-[var(--color-text)] py-2 px-3 text-sm font-medium leading-normal rounded-md hover:bg-[var(--color-bg-hover)]" href="#skills" onClick={() => setMobileOpen(false)}>Skills</a>
+                <a className="text-[var(--color-text)] py-2 px-3 text-sm font-medium leading-normal rounded-md hover:bg-[var(--color-bg-hover)]" href="#projects" onClick={() => setMobileOpen(false)}>Projects</a>
+                <a className="text-[var(--color-text)] py-2 px-3 text-sm font-medium leading-normal rounded-md hover:bg-[var(--color-bg-hover)]" href="#experience" onClick={() => setMobileOpen(false)}>Experience</a>
+                <a className="text-[var(--color-text)] py-2 px-3 text-sm font-medium leading-normal rounded-md hover:bg-[var(--color-bg-hover)]" href="#contact" onClick={() => setMobileOpen(false)}>Contact</a>
             </nav>
         </div>
         </>
