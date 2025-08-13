@@ -15,6 +15,13 @@ const DarkIcon: React.FC = () => {
         </svg>
     );
 }
+const RocketIcon: React.FC = () => {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor">
+            <path d="m353-480 59-59q12-12 12-28t-12-28q-12-12-28.5-12T355-595l-87 87q-6 6-8.5 13t-2.5 15q0 8 2.5 15t8.5 13l87 87q12 12 28.5 12t28.5-12q12-12 12-28t-12-28l-59-59Zm254 0-59 59q-12 12-12 28t12 28q12 12 28.5 12t28.5-12l87-87q6-6 8.5-13t2.5-15q0-8-2.5-15t-8.5-13l-87-87q-6-6-13.5-9t-15-3q-7.5 0-15 3t-13.5 9q-12 12-12 28t12 28l59 59ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z"/>
+        </svg>
+    );
+}
 
 const Header: React.FC = () => {
 
@@ -34,22 +41,39 @@ const Header: React.FC = () => {
         <>
         <header className="fixed top-0 left-0 right-0 z-50 bg-[var(--color-bg)] flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[var(--color-border)] px-4 sm:px-6 md:px-8 lg:px-10 py-3">
             <div className="flex items-center gap-3 sm:gap-4 text-[var(--color-text)]">
-                <div className="size-4">
-                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g clipPath="url(#clip0_6_330)">
-                            <path
-                                fillRule="evenodd"
-                                clipRule="evenodd"
-                                d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z"
-                                fill="currentColor"
-                            ></path>
-                        </g>
-                        <defs>
-                            <clipPath id="clip0_6_330"><rect width="48" height="48" fill="white"></rect></clipPath>
-                        </defs>
-                    </svg>
-                </div>
-                <h2 className="text-[var(--color-text)] text-base sm:text-lg font-bold leading-tight tracking-[-0.015em]">Aiden's Portfolio</h2>
+                <button
+                    className="p-2 h-10 rounded-md hover:bg-[var(--color-bg-hover)] size-4 flex items-center justify-center group"
+                    style={{ minWidth: '2.5rem', minHeight: '2.5rem' }}
+                    aria-label="Go to top"
+                    onClick={e => {
+                        e.preventDefault();
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                >
+                    <a href="#top" tabIndex={-1} aria-hidden="true" style={{ display: 'contents' }}>
+                        <svg
+                            viewBox="0 0 48 48"
+                            width="18"
+                            height="18"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="transition-transform duration-300 ease-in-out group-hover:rotate-180"
+                        >
+                            <g clipPath="url(#clip0_6_330)">
+                                <path
+                                    fillRule="evenodd"
+                                    clipRule="evenodd"
+                                    d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z"
+                                    fill="currentColor"
+                                ></path>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_6_330"><rect width="48" height="48" fill="white"></rect></clipPath>
+                            </defs>
+                        </svg>
+                    </a>
+                </button>
+                <h2 className="text-[var(--color-text)] text-base sm:text-lg font-bold leading-tight tracking-[-0.015em]">Aiden Paleczny</h2>
             </div>
             <div className="flex items-center gap-4 sm:gap-3 flex-1 justify-end">
                 <button
@@ -64,11 +88,11 @@ const Header: React.FC = () => {
                     </svg>
                 </button>
                 <nav id="site-nav" className="hidden lg:flex items-center gap-4 xl:gap-6">
-                    <a className="text-[var(--color-text)] text-sm font-medium leading-normal p-2 px-3 h-10 rounded-md hover:bg-[var(--color-bg-hover)]" href="#about">About</a>
-                    <a className="text-[var(--color-text)] text-sm font-medium leading-normal p-2 px-3 h-10 rounded-md hover:bg-[var(--color-bg-hover)]" href="#skills">Skills</a>
-                    <a className="text-[var(--color-text)] text-sm font-medium leading-normal p-2 px-3 h-10 rounded-md hover:bg-[var(--color-bg-hover)]" href="#projects">Projects</a>
-                    <a className="text-[var(--color-text)] text-sm font-medium leading-normal p-2 px-3 h-10 rounded-md hover:bg-[var(--color-bg-hover)]" href="#experience">Experience</a>
-                    <a className="text-[var(--color-text)] text-sm font-medium leading-normal p-2 px-3 h-10 rounded-md hover:bg-[var(--color-bg-hover)]" href="#contact">Contact</a>
+                    <a className="text-[var(--color-text)] text-sm font-medium leading-normal p-2 px-3 h-10 rounded-md hover:bg-[var(--color-bg-hover)]" href="#about" onClick={e => {e.preventDefault(); const el = document.getElementById('about'); if (el) { const y = el.getBoundingClientRect().top + window.scrollY - 64; window.scrollTo({ top: y, behavior: 'smooth' }); }}}>About</a>
+                    <a className="text-[var(--color-text)] text-sm font-medium leading-normal p-2 px-3 h-10 rounded-md hover:bg-[var(--color-bg-hover)]" href="#skills" onClick={e => {e.preventDefault(); const el = document.getElementById('skills'); if (el) { const y = el.getBoundingClientRect().top + window.scrollY - 64; window.scrollTo({ top: y, behavior: 'smooth' }); }}}>Skills</a>
+                    <a className="text-[var(--color-text)] text-sm font-medium leading-normal p-2 px-3 h-10 rounded-md hover:bg-[var(--color-bg-hover)]" href="#projects" onClick={e => {e.preventDefault(); const el = document.getElementById('projects'); if (el) { const y = el.getBoundingClientRect().top + window.scrollY - 64; window.scrollTo({ top: y, behavior: 'smooth' }); }}}>Projects</a>
+                    <a className="text-[var(--color-text)] text-sm font-medium leading-normal p-2 px-3 h-10 rounded-md hover:bg-[var(--color-bg-hover)]" href="#experience" onClick={e => {e.preventDefault(); const el = document.getElementById('experience'); if (el) { const y = el.getBoundingClientRect().top + window.scrollY - 64; window.scrollTo({ top: y, behavior: 'smooth' }); }}}>Experience</a>
+                    <a className="text-[var(--color-text)] text-sm font-medium leading-normal p-2 px-3 h-10 rounded-md hover:bg-[var(--color-bg-hover)]" href="#contact" onClick={e => {e.preventDefault(); const el = document.getElementById('contact'); if (el) { const y = el.getBoundingClientRect().top + window.scrollY - 64; window.scrollTo({ top: y, behavior: 'smooth' }); }}}>Contact</a>
                 </nav>
                 <button
                     onClick={toggleDark}
@@ -95,11 +119,11 @@ const Header: React.FC = () => {
         {/* Mobile dropdown nav */}
         <div className={`lg:hidden ${mobileOpen ? 'block' : 'hidden'} border-b border-[var(--color-border)]`}> 
             <nav className="flex flex-col gap-1 px-4 sm:px-6 py-2" aria-label="Mobile">
-                <a className="text-[var(--color-text)] py-2 px-3 text-sm font-medium leading-normal rounded-md hover:bg-[var(--color-bg-hover)]" href="#about" onClick={() => setMobileOpen(false)}>About</a>
-                <a className="text-[var(--color-text)] py-2 px-3 text-sm font-medium leading-normal rounded-md hover:bg-[var(--color-bg-hover)]" href="#skills" onClick={() => setMobileOpen(false)}>Skills</a>
-                <a className="text-[var(--color-text)] py-2 px-3 text-sm font-medium leading-normal rounded-md hover:bg-[var(--color-bg-hover)]" href="#projects" onClick={() => setMobileOpen(false)}>Projects</a>
-                <a className="text-[var(--color-text)] py-2 px-3 text-sm font-medium leading-normal rounded-md hover:bg-[var(--color-bg-hover)]" href="#experience" onClick={() => setMobileOpen(false)}>Experience</a>
-                <a className="text-[var(--color-text)] py-2 px-3 text-sm font-medium leading-normal rounded-md hover:bg-[var(--color-bg-hover)]" href="#contact" onClick={() => setMobileOpen(false)}>Contact</a>
+                <a className="text-[var(--color-text)] py-2 px-3 text-sm font-medium leading-normal rounded-md hover:bg-[var(--color-bg-hover)]" href="#about" onClick={e => {e.preventDefault(); setMobileOpen(false); const el = document.getElementById('about'); if (el) { const y = el.getBoundingClientRect().top + window.scrollY - 64; window.scrollTo({ top: y, behavior: 'smooth' }); }}}>About</a>
+                <a className="text-[var(--color-text)] py-2 px-3 text-sm font-medium leading-normal rounded-md hover:bg-[var(--color-bg-hover)]" href="#skills" onClick={e => {e.preventDefault(); setMobileOpen(false); const el = document.getElementById('skills'); if (el) { const y = el.getBoundingClientRect().top + window.scrollY - 64; window.scrollTo({ top: y, behavior: 'smooth' }); }}}>Skills</a>
+                <a className="text-[var(--color-text)] py-2 px-3 text-sm font-medium leading-normal rounded-md hover:bg-[var(--color-bg-hover)]" href="#projects" onClick={e => {e.preventDefault(); setMobileOpen(false); const el = document.getElementById('projects'); if (el) { const y = el.getBoundingClientRect().top + window.scrollY - 64; window.scrollTo({ top: y, behavior: 'smooth' }); }}}>Projects</a>
+                <a className="text-[var(--color-text)] py-2 px-3 text-sm font-medium leading-normal rounded-md hover:bg-[var(--color-bg-hover)]" href="#experience" onClick={e => {e.preventDefault(); setMobileOpen(false); const el = document.getElementById('experience'); if (el) { const y = el.getBoundingClientRect().top + window.scrollY - 64; window.scrollTo({ top: y, behavior: 'smooth' }); }}}>Experience</a>
+                <a className="text-[var(--color-text)] py-2 px-3 text-sm font-medium leading-normal rounded-md hover:bg-[var(--color-bg-hover)]" href="#contact" onClick={e => {e.preventDefault(); setMobileOpen(false); const el = document.getElementById('contact'); if (el) { const y = el.getBoundingClientRect().top + window.scrollY - 64; window.scrollTo({ top: y, behavior: 'smooth' }); }}}>Contact</a>
             </nav>
         </div>
         </>
