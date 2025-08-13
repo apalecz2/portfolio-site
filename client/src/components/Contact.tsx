@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import SectionHeading from "./SectionHeading"
 
 const MailIcon = () => (
@@ -41,12 +41,6 @@ type ContactLink = {
 
 const contactLinks: ContactLink[] = [
     {
-        name: "Email",
-        href: "mailto:aiden.paleczny@gmail.com",
-        display: "aiden.paleczny@gmail.com",
-        icon: <MailIcon />,
-    },
-    {
         name: "LinkedIn",
         href: "https://www.linkedin.com/in/aiden-paleczny",
         display: "aiden-paleczny",
@@ -62,45 +56,107 @@ const contactLinks: ContactLink[] = [
     },
 ]
 
-const Contact: React.FC = () => (
-    <section id="contact" className="px-4 sm:px-6 md:px-8 lg:px-10 xl:px-16 flex justify-center">
-        <div className="layout-content-container flex flex-col max-w-[960px] flex-1">
-            <SectionHeading>Contact</SectionHeading>
+const CopyIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor">
+        <path d="M16 1H4c-1.1 0-2 .9-2 2v12h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" />
+    </svg>
+)
 
-            <div className="bg-[var(--color-bg-card)] rounded-xl shadow-sm mx-4 my-3">
-                
-                <div className="px-4 py-4 sm:px-6 sm:py-6">
-                <p className="text-[var(--color-text)] text-base font-medium leading-tight p-4">
-                    If you have any questions or want to connect, please feel free to reach out.
-                </p>
-                    <div className="flex flex-wrap gap-3 p-4 justify-start">
-                      {contactLinks.map((item) => (
-                        <a
-                          key={item.name}
-                          href={item.href}
-                          target={item.external ? "_blank" : undefined}
-                          rel={item.external ? "noopener noreferrer" : undefined}
-                          className="group flex items-center gap-3 rounded-lg border border-[var(--color-border)] bg-[var(--color-bg)] p-4 transition-colors hover:border-[var(--color-accent)] hover:bg-[var(--color-bg-card)] basis-[250px] min-w-[250px] max-w-[300px] grow shrink-0"
-                        >
-                          <div className="text-[var(--color-text)] transition-colors group-hover:text-[var(--color-accent)]">
-                            {item.icon}
-                          </div>
-                          <div className="flex flex-col">
-                            <h3 className="text-[var(--color-text)] text-base font-bold leading-tight transition-colors group-hover:text-[var(--color-accent)]">
-                              {item.name}
-                            </h3>
-                            <span className="text-[var(--color-text-muted)] text-sm leading-tight transition-colors group-hover:text-[var(--color-accent)] select-text">
-                              {item.display}
-                            </span>
-                          </div>
-                        </a>
-                      ))}
+const CheckIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor">
+        <path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z" />
+    </svg>
+)
+
+const Contact: React.FC = () => {
+    const [copied, setCopied] = useState(false)
+
+    const handleCopyEmail = async () => {
+        try {
+            await navigator.clipboard.writeText("aiden.paleczny@gmail.com")
+            setCopied(true)
+            window.setTimeout(() => setCopied(false), 1500)
+        } catch { }
+    }
+
+    return (
+        <section id="contact" className="px-4 sm:px-6 md:px-8 lg:px-10 xl:px-16 flex justify-center">
+            <div className="layout-content-container flex flex-col max-w-[960px] flex-1">
+                <SectionHeading>Contact</SectionHeading>
+
+                <div className="bg-[var(--color-bg-card)] rounded-xl shadow-sm mx-4 my-3">
+
+                    <div className="px-4 py-4 sm:px-6 sm:py-6">
+                        <p className="text-[var(--color-text)] text-base font-medium leading-tight p-4">
+                            If you have any questions or want to connect, please feel free to reach out.
+                        </p>
+                        <div className="flex flex-wrap gap-3 p-4 justify-start">
+                            {/* Copy Email card */}
+                            <button
+                                type="button"
+                                onClick={handleCopyEmail}
+                                className="group flex items-center gap-3 rounded-lg border border-[var(--color-border)] bg-[var(--color-bg)] p-4 transition-colors hover:border-[var(--color-accent)] basis-[250px] min-w-[250px] max-w-[300px] grow shrink-0 text-left"
+                            >
+                                <div className="text-[var(--color-text)] transition-colors">
+                                    {copied ? <CheckIcon /> : <CopyIcon />}
+                                </div>
+                                <div className="flex flex-col">
+                                    <h3 className="text-[var(--color-text)] text-base font-bold leading-tight transition-colors">
+                                        Copy Email
+                                    </h3>
+                                    <span className="text-[var(--color-text-muted)] text-sm leading-tight transition-colors select-text">
+                                        aiden.paleczny@gmail.com
+                                    </span>
+                                </div>
+                            </button>
+
+                            {contactLinks.map((item) => (
+                                <a
+                                    key={item.name}
+                                    href={item.href}
+                                    target={item.external ? "_blank" : undefined}
+                                    rel={item.external ? "noopener noreferrer" : undefined}
+                                    className="group flex items-center gap-3 rounded-lg border border-[var(--color-border)] bg-[var(--color-bg)] p-4 transition-colors hover:border-[var(--color-accent)] basis-[250px] min-w-[250px] max-w-[300px] grow shrink-0"
+                                >
+                                    <div className="text-[var(--color-text)] transition-colors ">
+                                        {item.icon}
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <h3 className="text-[var(--color-text)] text-base font-bold leading-tight transition-colors">
+                                            {item.name}
+                                        </h3>
+                                        <span className="text-[var(--color-text-muted)] text-sm leading-tight transition-colors select-text">
+                                            {item.display}
+                                        </span>
+                                    </div>
+                                </a>
+                            ))}
+
+                            {/* Send me an email card 
+                            <a
+                                href="mailto:aiden.paleczny@gmail.com"
+                                className="group flex items-center gap-3 rounded-lg border border-[var(--color-border)] bg-[var(--color-bg)] p-4 transition-colors hover:border-[var(--color-accent)] hover:bg-[var(--color-bg-card)] basis-[250px] min-w-[250px] max-w-[300px] grow shrink-0"
+                            >
+                                <div className="text-[var(--color-text)] transition-colors group-hover:text-[var(--color-accent)]">
+                                    <MailIcon />
+                                </div>
+                                <div className="flex flex-col">
+                                    <h3 className="text-[var(--color-text)] text-base font-bold leading-tight transition-colors group-hover:text-[var(--color-accent)]">
+                                        Send Email
+                                    </h3>
+                                    <span className="text-[var(--color-text-muted)] text-sm leading-tight transition-colors group-hover:text-[var(--color-accent)] select-text">
+                                        aiden.paleczny@gmail.com
+                                    </span>
+                                </div>
+                            </a>
+                            */}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-)
+        </section>
+    )
+}
 
 export default Contact
 
