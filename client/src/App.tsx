@@ -14,7 +14,7 @@ const App: React.FC = () => {
       className="relative flex size-full min-h-screen flex-col bg-[var(--color-bg)] overflow-x-hidden"
       style={{ fontFamily: "var(--font-main)" }}
     >
-      <div className="layout-container flex h-full grow flex-col">
+      <div className="layout-container flex h-full grow flex-col mb-40">
         <Header />
         <FadeInSection><Hero /></FadeInSection>
         <FadeInSection><About /></FadeInSection>
