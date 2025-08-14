@@ -10,9 +10,15 @@ const Skills: React.FC = () => {
     "SQL",
     "HTML",
     "CSS",
+    "Java",
+    "C#",
+    "C++",
+    "TypeScript",
     "Git",
     "REST APIs",
-    "Agile Development"
+    "GraphQL",
+    "Agile Development",
+    "CI/CD"
   ]
   return (
     <section id="skills" className="px-4 sm:px-6 md:px-8 lg:px-10 xl:px-16 flex justify-center">

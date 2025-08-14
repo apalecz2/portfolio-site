@@ -7,7 +7,7 @@ const Experience: React.FC = () => (
     <div className="layout-content-container flex flex-col max-w-[960px] flex-1">
       <SectionHeading>Experience</SectionHeading>
       <div className="grid grid-cols-[40px_1fr] gap-x-2 px-4">
-        <ExperienceItem role="Software Engineer at Tech Innovators Inc." period="2020 - Present" showConnector />
+        <ExperienceItem role="Software Developer Co-op at Building Controls & Solutions (prev. Yorkland Controls)." period="May-Aug 2025, May-Aug 2024" showConnector />
         <div className="flex flex-col items-center gap-1 pb-3">
           <div className="w-[1.5px] bg-[var(--color-border-muted)] h-2"></div>
           <div className="text-[var(--color-text)]">
@@ -17,8 +17,8 @@ const Experience: React.FC = () => (
           </div>
         </div>
         <div className="flex flex-1 flex-col py-3">
-          <p className="text-[var(--color-text)] text-base font-medium leading-normal">Junior Developer at Startup X</p>
-          <p className="text-[var(--color-text-muted)] text-base font-normal leading-normal">2018 - 2020</p>
+          <p className="text-[var(--color-text)] text-base font-medium leading-normal">Day Camp Counsellor with the City of London</p>
+          <p className="text-[var(--color-text-muted)] text-base font-normal leading-normal">2018 - 2023</p>
         </div>
       </div>
     </div>
