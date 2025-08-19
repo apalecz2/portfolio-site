@@ -7,6 +7,7 @@ import Experience from "./components/Experience";
 import Contact from "./components/Contact";
 import FadeInSection from "./components/FadeInSection";
 import Footer from "./components/Footer"
+import Education from "./components/Education";
 
 const App: React.FC = () => {
     return (
@@ -18,9 +19,10 @@ const App: React.FC = () => {
                 <Header />
                 <FadeInSection><Hero /></FadeInSection>
                 <FadeInSection><About /></FadeInSection>
+                <FadeInSection><Experience /></FadeInSection>
                 <FadeInSection><Skills /></FadeInSection>
                 <FadeInSection><Projects /></FadeInSection>
-                <FadeInSection><Experience /></FadeInSection>
+                <FadeInSection><Education /></FadeInSection>
                 <FadeInSection><Contact /></FadeInSection>
                 <FadeInSection><Footer /></FadeInSection>
             </div>
