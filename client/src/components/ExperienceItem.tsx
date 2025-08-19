@@ -1,5 +1,3 @@
-import React from "react"
-
 interface ExperienceItemProps {
   role: string
   period: string
@@ -24,5 +22,3 @@ const ExperienceItem: React.FC<ExperienceItemProps> = ({ role, period, showConne
 )
 
 export default ExperienceItem
-
-

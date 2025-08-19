@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import SectionHeading from "./SectionHeading"
 
 const GithubIcon = () => (
@@ -153,5 +153,3 @@ const Contact: React.FC = () => {
 }
 
 export default Contact
-
-
