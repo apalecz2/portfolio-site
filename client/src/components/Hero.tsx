@@ -17,12 +17,21 @@ const Hero: React.FC = () => {
                                     Aiden Paleczny
                                 </h1>
                                 <h2 className="text-[var(--color-text)] text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
-                                    Software Engineer, B.E.Sc.
+                                    Software Developer, B.E.Sc.
                                 </h2>
                             </div>
                             <a
-                                href={"https://transit.aidenpaleczny.com"}
-                                className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[var(--color-accent)] text-[var(--color-bg)] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
+                                href="#projects"
+                                onClick={e => {
+                                    e.preventDefault();
+                                    const el = document.getElementById('projects');
+                                    if (el) {
+                                        const y = el.getBoundingClientRect().top + window.scrollY - 64; // offset for fixed header
+                                        window.scrollTo({ top: y, behavior: 'smooth' });
+                                    }
+                                }}
+                                className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[var(--color-accent)] text-[var(--color-bg)] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]"
+                            >
                                 <span className="truncate">View Projects</span>
                             </a>
                         </div>
