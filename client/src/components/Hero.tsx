@@ -8,7 +8,7 @@ const Hero: React.FC = () => {
                             className="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg @[480px]:h-auto @[480px]:min-w-[400px] @[864px]:w-full"
                             style={{
                                 backgroundImage:
-                                    "url(https://lh3.googleusercontent.com/aida-public/AB6AXuBwSufjqoLghwgGIQ9uxkh19Gf0P-3gh9edgErRIw7_-9-0slesZd2pMsqFFGZufUMwbTniZbroZkDO8pZzo5othOsjY1NMXbvE0k5qtktAi5OfaR4uiKShJsSXN7v1uSOnp4qvKBYzdPRJa5wWEwMT4cW11UfFilDsSftAcpQAi_j0LjHTtCc1o-VIPY7UEah83as_wr1dhUDkM7mJbEQjKln6cc8BRaitj1owhcXgqrZ8gDESTivtbM59hIajPC7G0ModLH7l9TLC)"
+                                    "url('/me.png')"
                             }}
                         />
                         <div className="flex flex-col gap-6 @[480px]:min-w-[400px] @[480px]:gap-8 @[864px]:justify-center">
@@ -17,7 +17,7 @@ const Hero: React.FC = () => {
                                     Aiden Paleczny
                                 </h1>
                                 <h2 className="text-[var(--color-text)] text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
-                                    Software Developer, B.E.Sc.
+                                    B.E.Sc. in Software Engineering
                                 </h2>
                             </div>
                             <a
