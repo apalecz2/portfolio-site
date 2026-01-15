@@ -5,9 +5,11 @@ interface ExperienceItemProps {
     period: string;
     bullets?: string[];
     showConnector?: boolean;
+    caseStudyUrl?: string;
 }
 
-const ExperienceItem: React.FC<ExperienceItemProps> = ({ role, period, bullets, showConnector }) => (
+const ExperienceItem: React.FC<ExperienceItemProps> = ({ role, period, bullets, showConnector, caseStudyUrl }) => (
+    
     <>
         {/* Left Column: Icon and Timeline Line */}
         <div className="flex flex-col items-center gap-1">
@@ -29,15 +31,29 @@ const ExperienceItem: React.FC<ExperienceItemProps> = ({ role, period, bullets, 
             </p>
 
             {bullets && bullets.length > 0 && (
-                <ul className="flex flex-col gap-2">
-                    {bullets.map((bullet, index) => (
-                        <li key={index} className="flex gap-2 text-[var(--color-text-muted)] text-sm leading-relaxed">
-                            <span className="text-[var(--color-border-muted)] mt-1.5 text-[10px]">●</span>
-                            <span>{bullet}</span>
-                        </li>
-                    ))}
-                </ul>
-            )}
+                <div>
+                    <ul className="flex flex-col gap-2">
+                        {bullets.map((bullet, index) => (
+                            <li key={index} className="flex gap-2 text-[var(--color-text-muted)] text-sm leading-relaxed">
+                                <span className="text-[var(--color-border-muted)] mt-1.5 text-[10px]">●</span>
+                                <span>{bullet}</span>
+                            </li>
+                        ))}
+                    </ul>
+                    {/* In case I add a breakdown / reflection document for my experience that's more in depth */}
+                    {caseStudyUrl && (
+                        <a
+                            href={caseStudyUrl}
+                            className="inline-flex items-center gap-2 mt-4 text-sm font-medium text-[var(--color-primary)] hover:underline decoration-2 underline-offset-4"
+                        >
+                            View Technical Reflection
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256">
+                                <path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"></path>
+                            </svg>
+                        </a>
+                    )}
+                </div>
+            )} 
         </div>
     </>
 );
