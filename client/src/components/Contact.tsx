@@ -82,7 +82,7 @@ const Contact: React.FC = () => {
 
                     <div className="px-4 py-4 sm:px-6 sm:py-6">
                         <p className="text-[var(--color-text)] text-base font-medium leading-tight p-4">
-                            If you have any questions or want to connect, please feel free to reach out.
+                            If you have any questions or want to connect, please feel free to reach out!
                         </p>
                         <div className="flex flex-wrap gap-3 p-4 justify-start">
                             {/* Copy Email card */}
