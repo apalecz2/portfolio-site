@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface ExperienceItemProps {
     role: React.ReactNode; // Note that this is a node so that there can be hmtl in it
     period: string;
