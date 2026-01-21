@@ -10,7 +10,7 @@ const Hero: React.FC = () => {
                         <div
                             className="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg @[480px]:h-auto @[480px]:min-w-[400px] @[864px]:w-full"
                             style={{
-                                backgroundImage: "url('/me.png')"
+                                backgroundImage: "url('/me.webp')"
                             }}
                         />
                         <div className="flex flex-col gap-6 @[480px]:min-w-[400px] @[480px]:gap-8 @[864px]:justify-center">
