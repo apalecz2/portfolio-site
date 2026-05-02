@@ -9,8 +9,8 @@ const Education: React.FC = () => (
                     institution="University of Western Ontario"
                     degree="B.E.Sc. Software Engineering"
                     period="2022 - 2026"
-                    gpa="3.71/4.0"
-                    details="Dean's Honor List (2022, 2023, 2024)"
+                    gpa="3.9/4.0"
+                    details="Dean's Honor List (2022, 2023, 2024, 2025)"
                 />
             </div>
         </div>
